@@ -15,13 +15,13 @@ import org.openjdk.jmh.annotations.Benchmark;
 import java.io.IOException;
 
 public class KryoBenchmark {
-  private static Kryo kryo = new Kryo();
-  private static MediaContent mediaContent = MediaContent.create();
-  private static Struct struct = Struct.create();
-  private static byte[] kryoMediaContentBytes;
-  private static byte[] kryoStructBytes;
-  private static Output output = new Output(1024, -1);
-  private static Input input = new Input();
+  private static final Kryo kryo = new Kryo();
+  private static final MediaContent mediaContent = MediaContent.create();
+  private static final Struct struct = Struct.create();
+  private static final byte[] kryoMediaContentBytes;
+  private static final byte[] kryoStructBytes;
+  private static final Output output = new Output(1024, -1);
+  private static final Input input = new Input();
 
   static {
     // kryo.setRegistrationRequired(false);
@@ -72,9 +72,9 @@ public class KryoBenchmark {
   }
 
 
-  private static Fury fury = Fury.builder().build(); // create once, reuse
-  private static byte[] furyMediaContentBytes;
-  private static byte[] furyStructBytes;
+  private static final Fury fury = Fury.builder().build(); // create once, reuse
+  private static final byte[] furyMediaContentBytes;
+  private static final byte[] furyStructBytes;
 
   static {
     fury.register(Struct.class);

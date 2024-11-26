@@ -5,9 +5,13 @@ import com.github.chaokunyang.fury.benchmark.data.Media;
 import com.github.chaokunyang.fury.benchmark.data.MediaContent;
 import com.github.chaokunyang.fury.benchmark.data.Struct;
 import org.apache.fury.Fury;
+import org.apache.fury.logging.LoggerFactory;
 import org.openjdk.jmh.annotations.Benchmark;
 
 public class BenchmarkBase {
+  static {
+    LoggerFactory.disableLogging();
+  }
   public static final Fury fury = Fury.builder().build(); // create once, reuse
   public static MediaContent mediaContent = new MediaContent().populate(false);
   public static Struct struct = Struct.create();
