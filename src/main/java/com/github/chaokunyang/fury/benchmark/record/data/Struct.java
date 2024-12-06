@@ -1,7 +1,5 @@
 package com.github.chaokunyang.fury.benchmark.record.data;
 
-import java.util.Random;
-
 public record Struct(
   int f1,
   int f2,

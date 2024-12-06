@@ -2,11 +2,8 @@ package com.github.chaokunyang.fury.benchmark;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.chaokunyang.fury.benchmark.data.Image;
 import com.github.chaokunyang.fury.benchmark.data.MediaContent;
 import com.github.chaokunyang.fury.benchmark.data.Struct;
-import com.github.chaokunyang.fury.benchmark.data.Media;
-import org.apache.fury.Fury;
 import org.openjdk.jmh.Main;
 import org.openjdk.jmh.annotations.Benchmark;
 

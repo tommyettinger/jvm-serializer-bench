@@ -4,11 +4,55 @@ Fury benchmarks with:
 - [x] [jackson databind](https://github.com/FasterXML/jackson-databind)
 - [x] [Microstream](https://github.com/real-logic/simple-binary-encoding)
 
-# Benchmark Setup
+# Benchmark Setup (2024)
 JMH config:
 `-f 3 -wi 5 -i 5 -t 1 -w 2s -r 2s -rf csv`
-OS: macos monterey
+OS: Windows 11
+Hardware: 12th Gen Intel Core i7-12800H at 2.40 GHz (laptop)
+JDK: Java 23, Adoptium OpenJDK
+
+# All Benchmark Results
+
+```
+Benchmark                                         Mode  Cnt         Score         Error  Units
+AvajeBenchmark.avajeDeserializeMediaContent      thrpt   15   1238041.118 ±   39720.414  ops/s
+AvajeBenchmark.avajeDeserializeStruct            thrpt   15   2593362.781 ±   44525.172  ops/s
+AvajeBenchmark.avajeSerializeMediaContent        thrpt   15   1953477.274 ±   24879.426  ops/s
+AvajeBenchmark.avajeSerializeStruct              thrpt   15   2433266.359 ±   44309.027  ops/s
+AvajeBenchmark.furyDeserializeMediaContent       thrpt   15   8242244.006 ±   44929.164  ops/s
+AvajeBenchmark.furyDeserializeStruct             thrpt   15  56411408.584 ±  377783.394  ops/s
+AvajeBenchmark.furySerializeMediaContent         thrpt   15   9801305.268 ±  232625.435  ops/s
+AvajeBenchmark.furySerializeStruct               thrpt   15  55036739.230 ± 1067573.666  ops/s
+BenchmarkBase.furyDeserializeMediaContent        thrpt   15   8064191.098 ±  180262.953  ops/s
+BenchmarkBase.furyDeserializeStruct              thrpt   15  56383272.199 ±  591648.257  ops/s
+BenchmarkBase.furySerializeMediaContent          thrpt   15   9997628.016 ±  284824.951  ops/s
+BenchmarkBase.furySerializeStruct                thrpt   15  57172381.091 ±  302062.876  ops/s
+JacksonBenchmark.furyDeserializeMediaContent     thrpt   15   8407308.773 ±   47142.384  ops/s
+JacksonBenchmark.furyDeserializeStruct           thrpt   15  57473268.779 ±  401459.521  ops/s
+JacksonBenchmark.furySerializeMediaContent       thrpt   15  10193236.017 ±  278947.500  ops/s
+JacksonBenchmark.furySerializeStruct             thrpt   15  57604328.310 ± 1269405.268  ops/s
+JacksonBenchmark.jacksonDeserializeMediaContent  thrpt   15    694888.593 ±   21995.636  ops/s
+JacksonBenchmark.jacksonDeserializeStruct        thrpt   15   1385459.015 ±   38102.697  ops/s
+JacksonBenchmark.jacksonSerializeMediaContent    thrpt   15   1148172.170 ±   26327.076  ops/s
+JacksonBenchmark.jacksonSerializeStruct          thrpt   15   1955240.876 ±   35842.791  ops/s
+KryoBenchmark.furyDeserializeMediaContent        thrpt   15   8545050.614 ±   62051.741  ops/s
+KryoBenchmark.furyDeserializeStruct              thrpt   15  54084943.025 ± 2309773.757  ops/s
+KryoBenchmark.furySerializeMediaContent          thrpt   15  10681414.222 ± 1035724.879  ops/s
+KryoBenchmark.furySerializeStruct                thrpt   15  53329127.448 ± 2907611.004  ops/s
+KryoBenchmark.kryoDeserializeMediaContent        thrpt   15   1754468.356 ±   16250.788  ops/s
+KryoBenchmark.kryoDeserializeStruct              thrpt   15   8014625.298 ±  264650.903  ops/s
+KryoBenchmark.kryoSerializeMediaContent          thrpt   15   1399461.155 ±   39386.295  ops/s
+KryoBenchmark.kryoSerializeStruct                thrpt   15   5034467.456 ±  134919.341  ops/s
+```
+
+The Microstream benchmarks all failed to run because that framework tries and fails to call an Unsafe method.
+
+# Benchmark Setup (2023)
+JMH config:
+`-f 3 -wi 5 -i 5 -t 1 -w 2s -r 2s -rf csv`
+OS: macOS Monterey
 Hardware: 2.6 GHz 6-Core Intel Core i7
+JDK: ???
 
 # Benchmark Results
 ## Fury vs Jackson
